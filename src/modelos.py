@@ -30,9 +30,8 @@ class ImagemAnotada:
         self.deteccoes.append(det)
 
     def gerar_imagem_anotada(self, imagem):
-        """
-        Retorna uma cópia da imagem com todas as caixas desenhadas.
-        """
+
+        
         copia = imagem.copy()
         for det in self.deteccoes:
             det.desenhar(copia)
