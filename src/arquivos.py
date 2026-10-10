@@ -4,11 +4,7 @@ from modelos import Deteccao, ImagemAnotada
 import cv2
 
 def ler_anotacoes(caminho_csv, pasta_imagens):
-    """
-    Lê o CSV de anotações, valida coordenadas e agrupa Deteccao por imagem.
-    Retorna um dicionário: { nome_imagem: ImagemAnotada }
-    """
-
+   
     anotacoes_por_imagem = {}
 
     caminho_csv = Path(caminho_csv)
@@ -40,7 +36,7 @@ def ler_anotacoes(caminho_csv, pasta_imagens):
             except ValueError:
                 raise ValueError(f"Campos numéricos inválidos na linha: {linha}")
 
-            # Verificar se a imagem existe
+            
             caminho_img = pasta_imagens / nome_img
             if not caminho_img.exists():
                 raise FileNotFoundError(f"Imagem não encontrada: {caminho_img}")
@@ -62,7 +58,7 @@ def ler_anotacoes(caminho_csv, pasta_imagens):
           
             det = Deteccao(classe_id, x_min, y_min, x_max, y_max)
 
-            # Criar ou adicionar ao objeto ImagemAnotada
+            
             if nome_img not in anotacoes_por_imagem:
                 anotacoes_por_imagem[nome_img] = ImagemAnotada(nome_img)
 
