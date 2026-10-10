@@ -15,7 +15,7 @@ def main():
     
     imagens_anotadas = ler_anotacoes(caminho_csv, pasta_imagens)
 
-    # Ordena os nomes das imagens
+   
     nomes_imagens = sorted(imagens_anotadas.keys())
 
     for nome_img in nomes_imagens:
@@ -42,7 +42,7 @@ def main():
             print("Encerrando execução...")
             break
 
-        # Salva imagem anotada
+       
         caminho_saida = pasta_resultados / nome_img
         cv2.imwrite(str(caminho_saida), anotada)
 
